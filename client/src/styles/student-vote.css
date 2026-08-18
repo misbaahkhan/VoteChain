@@ -1,0 +1,1034 @@
+* {
+  box-sizing: border-box;
+}
+
+.student-vote-page {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  color: white;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: #17101d;
+}
+
+.student-vote-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(116, 75, 135, 0.35),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(73, 46, 92, 0.35),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #17101d,
+      #26162e,
+      #34203d
+    );
+}
+
+.student-vote-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    rgba(0, 0, 0, 0.28);
+}
+
+/* ===================================================== */
+/* GLASS */
+/* ===================================================== */
+
+.glass-vote {
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 12px 35px
+    rgba(0, 0, 0, 0.24);
+}
+
+/* ===================================================== */
+/* NAVBAR */
+/* ===================================================== */
+
+.student-vote-navbar {
+  position: relative;
+  z-index: 5;
+
+  height: 70px;
+
+  margin: 18px 20px;
+
+  padding: 12px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-radius: 12px;
+}
+
+.vote-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.vote-logo {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.16);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.vote-brand h1 {
+  margin: 0;
+
+  font-size: 20px;
+}
+
+.vote-brand span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 8px;
+
+  letter-spacing: 1.6px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+.vote-back-button {
+  padding:
+    9px 15px;
+
+  border-radius: 8px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.vote-back-button:hover {
+  background:
+    rgba(255, 255, 255, 0.19);
+}
+
+/* ===================================================== */
+/* CONTENT */
+/* ===================================================== */
+
+.student-vote-content {
+  position: relative;
+  z-index: 2;
+
+  width:
+    min(900px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding:
+    55px 0 80px;
+}
+
+.vote-heading {
+  margin-bottom: 20px;
+}
+
+.vote-eyebrow {
+  margin: 0 0 9px;
+
+  font-size: 10px;
+
+  letter-spacing: 2.5px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+.vote-heading h2 {
+  margin: 0;
+
+  font-size: 40px;
+
+  letter-spacing: -1.2px;
+}
+
+.vote-heading > p:last-child {
+  margin-top: 11px;
+
+  max-width: 650px;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+/* ===================================================== */
+/* STATUS */
+/* ===================================================== */
+
+.vote-status-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.vote-status {
+  padding:
+    6px 10px;
+
+  border-radius: 6px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.8px;
+}
+
+.vote-status.active {
+  background:
+    rgba(74, 222, 128, 0.12);
+
+  color:
+    #86efac;
+}
+
+.vote-status.upcoming {
+  background:
+    rgba(250, 204, 21, 0.12);
+
+  color:
+    #fde047;
+}
+
+.vote-status.completed {
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+.vote-date {
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-size: 11px;
+}
+
+/* ===================================================== */
+/* VOTING CARD */
+/* ===================================================== */
+
+.voting-card {
+  padding: 30px;
+
+  border-radius: 14px;
+}
+
+.voting-card-heading {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.voting-card-heading h3 {
+  margin: 0;
+
+  font-size: 17px;
+
+  font-weight: 600;
+}
+
+.voting-card-heading p {
+  margin:
+    6px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+
+  font-size: 11px;
+}
+
+.voting-card-heading > span {
+  color:
+    rgba(255, 255, 255, 0.3);
+
+  font-size: 10px;
+}
+
+/* ===================================================== */
+/* CANDIDATES */
+/* ===================================================== */
+
+.vote-candidate-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.vote-candidate {
+  width: 100%;
+
+  padding:
+    15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  text-align: left;
+
+  border-radius: 10px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  background:
+    rgba(0, 0, 0, 0.13);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    0.2s;
+}
+
+.vote-candidate:hover {
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border-color:
+    rgba(255, 255, 255, 0.22);
+}
+
+.vote-candidate-selected {
+  background:
+    rgba(37, 99, 235, 0.14);
+
+  border-color:
+    rgba(96, 165, 250, 0.5);
+}
+
+/* ===================================================== */
+/* RADIO */
+/* ===================================================== */
+
+.vote-radio {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.3);
+}
+
+.vote-candidate-selected
+.vote-radio {
+  border-color:
+    #60a5fa;
+}
+
+.vote-radio span {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background:
+    #2563eb;
+}
+
+/* ===================================================== */
+/* CANDIDATE INFO */
+/* ===================================================== */
+
+.vote-candidate-info {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.vote-candidate-info strong {
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.vote-candidate-info span {
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+.vote-candidate-info small {
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+}
+
+.selected-label {
+  margin-left: auto;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+
+  color:
+    #93c5fd;
+}
+
+.no-candidates {
+  padding: 30px;
+
+  text-align: center;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-size: 12px;
+}
+
+/* ===================================================== */
+/* ERROR */
+/* ===================================================== */
+
+.vote-form-error {
+  margin-top: 20px;
+
+  padding:
+    12px 14px;
+
+  border-radius: 8px;
+
+  background:
+    rgba(239, 68, 68, 0.12);
+
+  border:
+    1px solid
+    rgba(239, 68, 68, 0.2);
+
+  color:
+    #fca5a5;
+
+  font-size: 12px;
+}
+
+/* ===================================================== */
+/* ACTION */
+/* ===================================================== */
+
+.vote-action {
+  padding-top: 25px;
+
+  display: flex;
+
+  justify-content: flex-end;
+}
+
+.confirm-vote-button {
+  padding:
+    11px 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background:
+    #2563eb;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.confirm-vote-button:hover:not(:disabled) {
+  background:
+    #1d4ed8;
+}
+
+.confirm-vote-button:disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+}
+
+.voting-closed-message {
+  margin:
+    15px 0 0;
+
+  text-align: right;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  font-size: 10px;
+}
+
+/* ===================================================== */
+/* LOADING / ERROR PAGE */
+/* ===================================================== */
+
+.vote-loading,
+.vote-error-page {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.vote-loading {
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size: 13px;
+}
+
+.vote-error-card {
+  width:
+    min(500px, calc(100% - 40px));
+
+  padding: 30px;
+
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+.vote-error-card h2 {
+  margin: 0;
+
+  font-size: 22px;
+}
+
+.vote-error-card p {
+  margin:
+    12px 0 20px;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+
+  font-size: 12px;
+}
+
+/* ===================================================== */
+/* RESPONSIVE */
+/* ===================================================== */
+
+@media (max-width: 650px) {
+
+  .student-vote-navbar {
+    margin: 12px;
+  }
+
+  .student-vote-content {
+    width:
+      calc(100% - 28px);
+
+    padding-top: 35px;
+  }
+
+  .vote-heading h2 {
+    font-size: 32px;
+  }
+
+  .voting-card {
+    padding: 22px;
+  }
+
+  .voting-card-heading {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .vote-status-row {
+    align-items: flex-start;
+
+    gap: 10px;
+
+    flex-direction: column;
+  }
+
+  .vote-action {
+    justify-content: stretch;
+  }
+
+  .confirm-vote-button {
+    width: 100%;
+  }
+
+  .selected-label {
+    display: none;
+  }
+}
+/* ===================================================== */
+/* VOTE SUCCESS */
+/* ===================================================== */
+
+.vote-success-card {
+  width:
+    min(500px, calc(100% - 40px));
+
+  padding: 40px;
+
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+.vote-success-icon {
+  width: 60px;
+  height: 60px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(74, 222, 128, 0.12);
+
+  border:
+    1px solid
+    rgba(74, 222, 128, 0.3);
+
+  color:
+    #86efac;
+
+  font-size: 28px;
+
+  font-weight: 700;
+}
+
+.vote-success-card h2 {
+  margin: 0;
+
+  font-size: 24px;
+}
+
+.vote-success-card p {
+  margin:
+    14px 0 25px;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+.vote-success-card strong {
+  color: white;
+}
+
+/* ===================================================== */
+/* VOTE CONFIRMATION MODAL */
+/* ===================================================== */
+
+.vote-confirmation-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(10, 5, 15, 0.68);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  animation:
+    voteConfirmationOverlayIn
+    0.18s ease-out;
+}
+
+@keyframes voteConfirmationOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.vote-confirmation-modal {
+  position: relative;
+
+  width:
+    min(460px, 100%);
+
+  padding: 32px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(58, 47, 64, 0.94);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 25px 70px
+    rgba(0, 0, 0, 0.5);
+
+  animation:
+    voteConfirmationModalIn
+    0.2s ease-out;
+}
+
+@keyframes voteConfirmationModalIn {
+  from {
+    opacity: 0;
+    transform:
+      translateY(10px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+/* CLOSE */
+
+.vote-confirmation-close {
+  position: absolute;
+
+  top: 14px;
+  right: 16px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.vote-confirmation-close:hover {
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color: white;
+}
+
+/* ICON */
+
+.vote-confirmation-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(37, 99, 235, 0.13);
+
+  border:
+    1px solid
+    rgba(96, 165, 250, 0.25);
+
+  color:
+    #93c5fd;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* CONTENT */
+
+.vote-confirmation-content {
+  padding-right: 20px;
+}
+
+.vote-confirmation-eyebrow {
+  margin: 0 0 7px;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+.vote-confirmation-content h3 {
+  margin: 0 0 12px;
+
+  color: white;
+
+  font-size: 22px;
+
+  font-weight: 600;
+}
+
+.vote-confirmation-content > p:not(
+  .vote-confirmation-eyebrow
+) {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.vote-confirmation-content strong {
+  color: white;
+
+  font-weight: 600;
+}
+
+.vote-confirmation-warning {
+  display: block;
+
+  margin-top: 12px;
+
+  color:
+    rgba(252, 165, 165, 0.75);
+
+  font-size: 11px;
+}
+
+/* ACTIONS */
+
+.vote-confirmation-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+.vote-confirmation-cancel,
+.vote-confirmation-submit {
+  padding:
+    10px 17px;
+
+  border-radius: 8px;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.vote-confirmation-cancel {
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color:
+    rgba(255, 255, 255, 0.72);
+}
+
+.vote-confirmation-cancel:hover {
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color: white;
+}
+
+.vote-confirmation-submit {
+  border:
+    1px solid
+    rgba(96, 165, 250, 0.28);
+
+  background:
+    rgba(37, 99, 235, 0.22);
+
+  color:
+    #bfdbfe;
+
+  font-weight: 600;
+}
+
+.vote-confirmation-submit:hover {
+  background:
+    rgba(37, 99, 235, 0.32);
+
+  border-color:
+    rgba(96, 165, 250, 0.45);
+
+  color: white;
+}
+
+.vote-confirmation-cancel:disabled,
+.vote-confirmation-submit:disabled,
+.vote-confirmation-close:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .vote-confirmation-modal {
+    padding: 26px 22px;
+  }
+
+  .vote-confirmation-actions {
+    flex-direction: column-reverse;
+  }
+
+  .vote-confirmation-cancel,
+  .vote-confirmation-submit {
+    width: 100%;
+  }
+}
+.votechain-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}

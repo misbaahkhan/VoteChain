@@ -1,0 +1,403 @@
+* {
+  box-sizing: border-box;
+}
+
+.student-dashboard {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #17101d;
+}
+
+.dashboard-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(116, 75, 135, 0.35),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(73, 46, 92, 0.35),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #17101d,
+      #26162e,
+      #34203d
+    );
+}
+
+.dashboard-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/* ================= GLASS ================= */
+
+.glass-dashboard {
+  background: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* ================= NAVBAR ================= */
+
+.student-navbar {
+  position: relative;
+  z-index: 5;
+
+  height: 70px;
+
+  margin: 18px 20px;
+
+  padding: 12px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 12px;
+}
+
+.dashboard-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dashboard-logo {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dashboard-brand h1 {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dashboard-brand span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 8px;
+
+  letter-spacing: 1.6px;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.logout-button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 8px;
+
+  padding: 9px 17px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ================= CONTENT ================= */
+
+.dashboard-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1050px;
+
+  margin: 0 auto;
+
+  padding: 60px 24px 80px;
+}
+
+/* ================= WELCOME ================= */
+
+.dashboard-eyebrow {
+  margin: 0 0 10px;
+
+  font-size: 10px;
+
+  letter-spacing: 2.5px;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.welcome-section h2 {
+  margin: 0;
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  letter-spacing: -1.5px;
+}
+
+.welcome-section h2 span {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.welcome-section p:last-child {
+  margin-top: 12px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 14px;
+}
+
+/* ================= MAIN CARDS ================= */
+
+.dashboard-grid {
+  margin-top: 38px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+.student-info-card,
+.election-card {
+  padding: 26px;
+
+  border-radius: 12px;
+}
+
+.card-heading h3,
+.election-card h3 {
+  margin: 0;
+
+  font-size: 20px;
+}
+
+/* ================= PROFILE ================= */
+
+.profile-details {
+  margin-top: 24px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+.profile-details div {
+  padding-bottom: 12px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-details span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 11px;
+}
+
+.profile-details strong {
+  font-size: 13px;
+
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  word-break: break-word;
+}
+
+/* ================= ELECTION ================= */
+
+.election-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.active-badge {
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  background: rgba(74, 222, 128, 0.12);
+
+  color: #86efac;
+
+  font-size: 10px;
+
+  letter-spacing: 0.5px;
+}
+
+.election-date {
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 12px;
+}
+
+.election-card p {
+  margin: 12px 0 24px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.vote-button {
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.vote-button:hover {
+  background: #1d4ed8;
+}
+
+/* ================= STATS ================= */
+
+.stats-grid {
+  margin-top: 18px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.stat-card {
+  padding: 23px;
+
+  border-radius: 12px;
+}
+
+.stat-number {
+  display: block;
+
+  font-size: 25px;
+
+  font-weight: 700;
+}
+
+.stat-label {
+  display: block;
+
+  margin-top: 5px;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 11px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 750px) {
+
+  .dashboard-content {
+    padding-top: 35px;
+  }
+
+  .welcome-section h2 {
+    font-size: 34px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  .student-navbar {
+    margin: 12px;
+  }
+
+  .dashboard-content {
+    padding: 30px 16px 60px;
+  }
+
+  .profile-details {
+    grid-template-columns: 1fr;
+  }
+
+}
+.votechain-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+/* ================= MULTIPLE ELECTION BUTTONS ================= */
+
+.vote-button + .vote-button {
+  margin-top: 10px;
+}

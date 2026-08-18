@@ -1,0 +1,1169 @@
+* {
+  box-sizing: border-box;
+}
+
+.create-election-page {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #17101d;
+}
+
+.create-election-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(116, 75, 135, 0.35),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(73, 46, 92, 0.35),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #17101d,
+      #26162e,
+      #34203d
+    );
+}
+
+.create-election-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.glass-create {
+  background: rgba(255, 255, 255, 0.14);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.24);
+}
+
+/* ================= NAVBAR ================= */
+
+.create-election-navbar {
+  position: relative;
+  z-index: 5;
+
+  height: 70px;
+
+  margin: 18px 20px;
+
+  padding: 12px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 12px;
+}
+
+.create-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.create-logo {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.create-brand h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.create-brand span {
+  display: block;
+  margin-top: 3px;
+
+  font-size: 8px;
+  letter-spacing: 1.6px;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.back-dashboard {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 15px;
+
+  border-radius: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.back-dashboard:hover {
+  background: rgba(255, 255, 255, 0.19);
+}
+
+/* ================= CONTENT ================= */
+
+.create-election-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(900px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding: 55px 0 80px;
+}
+
+.create-heading {
+  margin-bottom: 28px;
+}
+
+.create-eyebrow {
+  margin: 0 0 9px;
+
+  font-size: 10px;
+
+  letter-spacing: 2.5px;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.create-heading h2 {
+  margin: 0;
+
+  font-size: 40px;
+
+  letter-spacing: -1.2px;
+}
+
+.create-heading > p:last-child {
+  margin-top: 11px;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 13px;
+}
+
+/* ================= FORM ================= */
+
+.election-form {
+  padding: 30px;
+
+  border-radius: 14px;
+}
+
+.form-section {
+  padding-bottom: 30px;
+
+  margin-bottom: 30px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+}
+
+.form-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.section-heading h3 {
+  margin: 0;
+
+  font-size: 17px;
+
+  font-weight: 600;
+}
+
+.section-heading p {
+  margin: 6px 0 0;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 11px;
+}
+
+.section-heading > span {
+  color: rgba(255, 255, 255, 0.25);
+
+  font-size: 12px;
+}
+
+/* ================= INPUTS ================= */
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 11px;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  padding: 12px 13px;
+
+  border-radius: 8px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.15);
+
+  background:
+    rgba(0, 0, 0, 0.15);
+
+  color: white;
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  transition: 0.2s;
+}
+
+.form-group textarea {
+  resize: vertical;
+
+  min-height: 100px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color:
+    rgba(255, 255, 255, 0.28);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color:
+    rgba(255, 255, 255, 0.35);
+
+  background:
+    rgba(0, 0, 0, 0.2);
+}
+
+/* Date browser controls */
+
+.form-group input[type="datetime-local"] {
+  color-scheme: dark;
+}
+
+/* ================= DATE ================= */
+
+.date-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 16px;
+}
+
+/* ================= CSV ================= */
+
+.csv-upload {
+  margin-top: 5px;
+}
+
+.csv-dropzone {
+  min-height: 180px;
+
+  padding: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 12px;
+
+  border: 1px dashed
+    rgba(255, 255, 255, 0.28);
+
+  background:
+    rgba(0, 0, 0, 0.13);
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.csv-dropzone:hover {
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  border-color:
+    rgba(255, 255, 255, 0.42);
+}
+
+.upload-icon {
+  width: 48px;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  color:
+    rgba(255, 255, 255, 0.75);
+}
+
+.csv-dropzone strong {
+  font-size: 14px;
+}
+
+.csv-dropzone span {
+  margin-top: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-size: 11px;
+}
+
+.csv-format {
+  margin-top: 13px;
+
+  padding: 11px 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  border-radius: 8px;
+
+  background:
+    rgba(0, 0, 0, 0.12);
+
+  color:
+    rgba(255, 255, 255, 0.42);
+
+  font-size: 10px;
+}
+
+.csv-format code {
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-size: 9px;
+}
+
+/* ================= MESSAGES ================= */
+
+.form-error,
+.form-success {
+  margin-top: 22px;
+
+  padding: 12px 14px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+}
+
+.form-error {
+  background:
+    rgba(239, 68, 68, 0.12);
+
+  border:
+    1px solid
+    rgba(239, 68, 68, 0.2);
+
+  color: #fca5a5;
+}
+
+.form-success {
+  background:
+    rgba(74, 222, 128, 0.1);
+
+  border:
+    1px solid
+    rgba(74, 222, 128, 0.2);
+
+  color: #86efac;
+}
+
+/* ================= ACTIONS ================= */
+
+.form-actions {
+  padding-top: 26px;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+}
+
+.cancel-button,
+.create-button {
+  padding: 11px 18px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.cancel-button {
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.16);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color:
+    rgba(255, 255, 255, 0.7);
+}
+
+.cancel-button:hover {
+  background:
+    rgba(255, 255, 255, 0.13);
+}
+
+.create-button {
+  border: none;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-weight: 600;
+}
+
+.create-button:hover {
+  background: #1d4ed8;
+}
+
+.create-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 650px) {
+
+  .create-election-navbar {
+    margin: 12px;
+  }
+
+  .create-election-content {
+    width: calc(100% - 28px);
+
+    padding-top: 35px;
+  }
+
+  .create-heading h2 {
+    font-size: 32px;
+  }
+
+  .election-form {
+    padding: 22px;
+  }
+
+  .date-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .cancel-button,
+  .create-button {
+    width: 100%;
+  }
+}
+
+/* ===================================================== */
+/* CANDIDATES SECTION */
+/* ===================================================== */
+
+.candidate-info {
+  margin-bottom: 16px;
+
+  padding: 12px 14px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border-radius: 8px;
+
+  background:
+    rgba(0, 0, 0, 0.12);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+.candidate-info span {
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.9);
+}
+
+.candidate-info p {
+  margin: 0;
+
+  font-size: 11px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+
+/* ================= CANDIDATE LIST ================= */
+
+.candidate-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  max-height: 420px;
+
+  overflow-y: auto;
+
+  padding-right: 4px;
+}
+
+
+/* Scrollbar */
+
+.candidate-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.candidate-list::-webkit-scrollbar-track {
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  border-radius: 10px;
+}
+
+.candidate-list::-webkit-scrollbar-thumb {
+  background:
+    rgba(255, 255, 255, 0.18);
+
+  border-radius: 10px;
+}
+
+
+/* ================= CANDIDATE OPTION ================= */
+
+.candidate-option {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  text-align: left;
+
+  border-radius: 10px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  background:
+    rgba(0, 0, 0, 0.12);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.candidate-option:hover {
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border-color:
+    rgba(255, 255, 255, 0.22);
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* ================= CHECK BOX ================= */
+
+.candidate-check {
+  width: 22px;
+
+  height: 22px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 6px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+
+  background:
+    rgba(0, 0, 0, 0.15);
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+
+/* ================= SELECTED CANDIDATE ================= */
+
+.candidate-option.candidate-selected {
+  background:
+    rgba(37, 99, 235, 0.14);
+
+  border-color:
+    rgba(96, 165, 250, 0.45);
+}
+
+.candidate-option.candidate-selected
+.candidate-check {
+  background:
+    #2563eb;
+
+  border-color:
+    #2563eb;
+
+  box-shadow:
+    0 0 12px
+    rgba(37, 99, 235, 0.25);
+}
+
+
+/* ================= CANDIDATE DETAILS ================= */
+
+.candidate-details {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.candidate-details strong {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color:
+    rgba(255, 255, 255, 0.9);
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.candidate-details span {
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+.candidate-details small {
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+}
+
+
+/* ================= NOTE ================= */
+
+.candidate-note {
+  margin:
+    14px 0 0;
+
+  padding:
+    11px 13px;
+
+  border-radius: 8px;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  color:
+    rgba(255, 255, 255, 0.38);
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* ===================================================== */
+/* RESPONSIVE - CANDIDATES */
+/* ===================================================== */
+
+@media (max-width: 650px) {
+
+  .candidate-list {
+    max-height: 350px;
+  }
+
+  .candidate-option {
+    padding: 12px;
+  }
+
+  .candidate-details strong {
+    font-size: 12px;
+  }
+
+}
+
+/* ===================================================== */
+/* CANDIDATE SEARCH */
+/* ===================================================== */
+
+.candidate-search {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  margin-bottom: 9px;
+
+  border-radius: 9px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(0, 0, 0, 0.15);
+
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.candidate-search:focus-within {
+  border-color:
+    rgba(255, 255, 255, 0.32);
+
+  background:
+    rgba(0, 0, 0, 0.2);
+}
+
+.candidate-search-icon {
+  flex-shrink: 0;
+
+  margin-left: 13px;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+
+  font-size: 12px;
+}
+
+.candidate-search input {
+  width: 100%;
+
+  padding:
+    12px 40px 12px 9px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.candidate-search input::placeholder {
+  color:
+    rgba(255, 255, 255, 0.3);
+}
+
+.candidate-search-clear {
+  position: absolute;
+
+  right: 9px;
+
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 6px;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  transition: 0.2s;
+}
+
+.candidate-search-clear:hover {
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  color: white;
+}
+
+/* ===================================================== */
+/* SEARCH RESULT COUNT */
+/* ===================================================== */
+
+.candidate-search-result {
+  margin:
+    0 0 14px;
+
+  color:
+    rgba(255, 255, 255, 0.32);
+
+  font-size: 9px;
+}
+
+.candidate-search-result strong {
+  color:
+    rgba(255, 255, 255, 0.58);
+}
+
+/* ===================================================== */
+/* SELECTED CANDIDATES */
+/* ===================================================== */
+
+.selected-candidates {
+  margin-bottom: 16px;
+
+  padding: 13px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(37, 99, 235, 0.08);
+
+  border:
+    1px solid
+    rgba(96, 165, 250, 0.18);
+}
+
+.selected-candidates-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+.selected-candidates-heading strong {
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 10px;
+}
+
+.selected-candidates-heading span {
+  min-width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background:
+    rgba(37, 99, 235, 0.2);
+
+  color:
+    #93c5fd;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.selected-candidate-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+.selected-candidate-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  max-width: 100%;
+
+  padding:
+    7px 8px 7px 10px;
+
+  border-radius: 8px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+}
+
+.selected-candidate-chip > div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.selected-candidate-chip strong {
+  max-width: 180px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  color:
+    rgba(255, 255, 255, 0.8);
+
+  font-size: 9px;
+}
+
+.selected-candidate-chip span {
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  font-size: 8px;
+}
+
+.selected-candidate-chip button {
+  width: 22px;
+  height: 22px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 6px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.selected-candidate-chip button:hover {
+  background:
+    rgba(239, 68, 68, 0.14);
+
+  color:
+    #fca5a5;
+}
+
+/* ===================================================== */
+/* NO SEARCH RESULTS */
+/* ===================================================== */
+
+.candidate-no-results {
+  min-height: 110px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  border:
+    1px dashed
+    rgba(255, 255, 255, 0.12);
+
+  background:
+    rgba(0, 0, 0, 0.08);
+
+  text-align: center;
+}
+
+.candidate-no-results strong {
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-size: 11px;
+}
+
+.candidate-no-results span {
+  color:
+    rgba(255, 255, 255, 0.3);
+
+  font-size: 9px;
+}
+
+/* ===================================================== */
+/* RESPONSIVE - SEARCH */
+/* ===================================================== */
+
+@media (max-width: 650px) {
+  .candidate-search input {
+    font-size: 10px;
+  }
+
+  .selected-candidate-list {
+    flex-direction: column;
+  }
+
+  .selected-candidate-chip {
+    width: 100%;
+  }
+
+  .selected-candidate-chip strong {
+    max-width: none;
+  }
+}
+
+.votechain-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}

@@ -1,0 +1,540 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   PAGE
+========================================= */
+
+.votechain-home {
+  position: relative;
+
+  min-height: 100vh;
+  width: 100%;
+
+  overflow: hidden;
+
+  color: white;
+
+  background: #17101d;
+}
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.home-background {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(116, 75, 135, 0.38),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(73, 46, 92, 0.42),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #17101d 0%,
+      #26162e 45%,
+      #34203d 100%
+    );
+
+  transform: scale(1.05);
+}
+
+/* Same darkening idea as ReserveHub */
+
+.home-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.38);
+
+  z-index: 1;
+}
+
+/* =========================================
+   GLASSMORPHISM
+========================================= */
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.home-header {
+  position: absolute;
+
+  top: 18px;
+  left: 20px;
+  right: 20px;
+
+  z-index: 10;
+
+  height: 68px;
+
+  padding: 12px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-radius: 12px;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.brand h1 {
+  margin: 0;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+}
+
+.brand span {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 8px;
+
+  letter-spacing: 1.8px;
+
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.header-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 12px;
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #86efac;
+
+  box-shadow: 0 0 10px rgba(134, 239, 172, 0.8);
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.home-content {
+  position: relative;
+
+  z-index: 5;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 120px 24px 80px;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero-content {
+  text-align: center;
+
+  max-width: 720px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.hero-content h2 {
+  margin: 0;
+
+  font-size: clamp(44px, 6vw, 72px);
+
+  line-height: 1.03;
+
+  font-weight: 700;
+
+  letter-spacing: -3px;
+
+  text-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.hero-content h2 span {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.hero-description {
+  max-width: 580px;
+
+  margin: 22px auto 0;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  text-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   ROLE SECTION
+========================================= */
+
+.role-section {
+  width: 100%;
+
+  max-width: 760px;
+
+  margin-top: 48px;
+}
+
+.choose-text {
+  margin: 0 0 14px;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.role-cards {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 16px;
+}
+
+/* =========================================
+   ROLE CARD
+========================================= */
+
+.role-card {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 145px;
+
+  padding: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 17px;
+
+  text-align: left;
+
+  border-radius: 14px;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-4px);
+
+  background: rgba(255, 255, 255, 0.19);
+
+  border-color: rgba(255, 255, 255, 0.3);
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+.role-card:active {
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   ROLE ICON
+========================================= */
+
+.role-icon {
+  flex-shrink: 0;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  background: rgba(255, 255, 255, 0.1);
+
+  font-size: 25px;
+}
+
+.admin-icon {
+  background:
+    rgba(139, 92, 246, 0.2);
+}
+
+.student-icon {
+  background:
+    rgba(59, 130, 246, 0.18);
+}
+
+/* =========================================
+   ROLE TEXT
+========================================= */
+
+.role-info {
+  flex: 1;
+}
+
+.role-info h3 {
+  margin: 0;
+
+  font-size: 20px;
+
+  font-weight: 600;
+}
+
+.role-info p {
+  margin: 7px 0 0;
+
+  max-width: 250px;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+
+  color: rgba(255, 255, 255, 0.58);
+}
+
+/* =========================================
+   ARROW
+========================================= */
+
+.role-arrow {
+  flex-shrink: 0;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 17px;
+
+  transition: transform 0.25s ease;
+}
+
+.role-card:hover .role-arrow {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.home-footer {
+  position: absolute;
+
+  z-index: 10;
+
+  bottom: 20px;
+
+  left: 0;
+  right: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .home-header {
+    left: 12px;
+    right: 12px;
+
+    height: 62px;
+
+    padding: 10px 14px;
+  }
+
+  .brand h1 {
+    font-size: 19px;
+  }
+
+  .header-status {
+    display: none;
+  }
+
+  .hero-content h2 {
+    font-size: 46px;
+
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .role-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .role-card {
+    min-height: 125px;
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .home-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-content h2 {
+    font-size: 40px;
+  }
+
+  .role-card {
+    padding: 18px;
+  }
+
+  .role-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+}
+
+.votechain-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}

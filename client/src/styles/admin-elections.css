@@ -1,0 +1,1179 @@
+* {
+  box-sizing: border-box;
+}
+
+.admin-elections-page {
+  position: relative;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  color: white;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: #17101d;
+}
+
+.admin-elections-bg {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(116, 75, 135, 0.35),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(73, 46, 92, 0.35),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #17101d,
+      #26162e,
+      #34203d
+    );
+}
+
+.admin-elections-bg::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    rgba(0, 0, 0, 0.28);
+}
+
+/* ===================================================== */
+/* GLASS */
+/* ===================================================== */
+
+.glass-elections {
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 12px 35px
+    rgba(0, 0, 0, 0.24);
+}
+
+/* ===================================================== */
+/* NAVBAR */
+/* ===================================================== */
+
+.admin-elections-navbar {
+  position: relative;
+
+  z-index: 5;
+
+  height: 70px;
+
+  margin:
+    18px 20px;
+
+  padding:
+    12px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-radius: 12px;
+}
+
+.elections-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.elections-logo {
+  width: 40px;
+
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.16);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.elections-brand h1 {
+  margin: 0;
+
+  font-size: 20px;
+}
+
+.elections-brand span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 8px;
+
+  letter-spacing: 1.6px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+.elections-nav-actions {
+  display: flex;
+
+  gap: 8px;
+}
+
+.elections-back-button,
+.elections-logout {
+  padding:
+    9px 15px;
+
+  border-radius: 8px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.elections-back-button:hover,
+.elections-logout:hover {
+  background:
+    rgba(255, 255, 255, 0.19);
+}
+
+/* ===================================================== */
+/* CONTENT */
+/* ===================================================== */
+
+.admin-elections-content {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(1000px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding:
+    55px 0 80px;
+}
+
+.elections-heading {
+  margin-bottom: 20px;
+}
+
+.elections-eyebrow {
+  margin:
+    0 0 9px;
+
+  font-size: 10px;
+
+  letter-spacing: 2.5px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+.elections-heading h2 {
+  margin: 0;
+
+  font-size: 40px;
+
+  letter-spacing: -1.2px;
+}
+
+.elections-heading > p:last-child {
+  margin-top: 11px;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+
+  font-size: 13px;
+}
+
+/* ===================================================== */
+/* TOP ACTION */
+/* ===================================================== */
+
+.elections-top-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-bottom: 18px;
+}
+
+.create-election-button {
+  padding:
+    11px 17px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background:
+    #2563eb;
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.create-election-button:hover {
+  background:
+    #1d4ed8;
+
+  transform:
+    translateY(-1px);
+}
+
+/* ===================================================== */
+/* ERROR */
+/* ===================================================== */
+
+.elections-error {
+  margin-bottom: 18px;
+
+  padding:
+    12px 14px;
+
+  border-radius: 8px;
+
+  background:
+    rgba(239, 68, 68, 0.12);
+
+  border:
+    1px solid
+    rgba(239, 68, 68, 0.2);
+
+  color:
+    #fca5a5;
+
+  font-size: 12px;
+}
+
+/* ===================================================== */
+/* FILTERS */
+/* ===================================================== */
+
+.election-filters {
+  display: flex;
+
+  gap: 5px;
+
+  padding: 6px;
+
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+}
+
+.filter-button {
+  flex: 1;
+
+  padding:
+    10px 12px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background:
+    transparent;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.filter-button span {
+  margin-left: 5px;
+
+  opacity: 0.6;
+}
+
+.filter-button:hover {
+  color: white;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+.filter-button.active {
+  color: white;
+
+  background:
+    rgba(255, 255, 255, 0.13);
+}
+
+/* ===================================================== */
+/* ELECTION LIST */
+/* ===================================================== */
+
+.elections-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.election-management-card {
+  padding:
+    23px;
+
+  border-radius: 14px;
+
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+
+.election-management-card:hover {
+  transform:
+    translateY(-2px);
+
+  background:
+    rgba(255, 255, 255, 0.16);
+}
+
+/* ===================================================== */
+/* CARD TOP */
+/* ===================================================== */
+
+.management-card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.management-status {
+  padding:
+    6px 9px;
+
+  border-radius: 6px;
+
+  font-size: 8px;
+
+  letter-spacing: 0.8px;
+}
+
+.management-status.active {
+  color:
+    #86efac;
+
+  background:
+    rgba(74, 222, 128, 0.12);
+}
+
+.management-status.upcoming {
+  color:
+    #fde047;
+
+  background:
+    rgba(250, 204, 21, 0.12);
+}
+
+.management-status.completed {
+  color:
+    rgba(255, 255, 255, 0.5);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+.management-status.draft {
+  color:
+    #c4b5fd;
+
+  background:
+    rgba(167, 139, 250, 0.12);
+}
+
+.management-date {
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-size: 10px;
+}
+
+/* ===================================================== */
+/* CARD BODY */
+/* ===================================================== */
+
+.management-card-body {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.management-main {
+  flex: 1;
+}
+
+.management-main h3 {
+  margin: 0;
+
+  font-size: 20px;
+}
+
+.management-main p {
+  margin:
+    8px 0 0;
+
+  max-width: 600px;
+
+  color:
+    rgba(255, 255, 255, 0.43);
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+/* ===================================================== */
+/* STATS */
+/* ===================================================== */
+
+.management-stats {
+  display: flex;
+
+  gap: 25px;
+
+  flex-shrink: 0;
+}
+
+.management-stats div {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 4px;
+}
+
+.management-stats strong {
+  font-size: 20px;
+}
+
+.management-stats span {
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  font-size: 8px;
+
+  white-space: nowrap;
+}
+
+/* ===================================================== */
+/* DATES */
+/* ===================================================== */
+
+.management-dates {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 12px;
+
+  margin-top: 20px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+.management-dates div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.management-dates span {
+  color:
+    rgba(255, 255, 255, 0.32);
+
+  font-size: 8px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+}
+
+.management-dates strong {
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-size: 10px;
+
+  font-weight: 500;
+}
+
+/* ===================================================== */
+/* ACTIONS */
+/* ===================================================== */
+
+.management-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.management-primary-button,
+.management-secondary-button {
+  padding:
+    9px 14px;
+
+  border-radius: 7px;
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.management-primary-button {
+  border: none;
+
+  background:
+    #2563eb;
+
+  color: white;
+
+  font-weight: 600;
+}
+
+.management-primary-button:hover {
+  background:
+    #1d4ed8;
+}
+
+.management-secondary-button {
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.15);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color:
+    rgba(255, 255, 255, 0.7);
+}
+
+.management-secondary-button:hover {
+  background:
+    rgba(255, 255, 255, 0.13);
+
+  color: white;
+}
+
+/* ===================================================== */
+/* EMPTY STATE */
+/* ===================================================== */
+
+.no-elections {
+  min-height: 280px;
+
+  padding: 35px;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+.no-elections-icon {
+  width: 50px;
+
+  height: 50px;
+
+  margin-bottom: 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size: 20px;
+}
+
+.no-elections h3 {
+  margin: 0;
+
+  font-size: 17px;
+}
+
+.no-elections p {
+  margin:
+    8px 0 18px;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-size: 10px;
+}
+
+/* ===================================================== */
+/* LOADING */
+/* ===================================================== */
+
+.elections-loading {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+
+  font-size: 13px;
+}
+
+/* ===================================================== */
+/* RESPONSIVE */
+/* ===================================================== */
+
+@media (max-width: 700px) {
+
+  .admin-elections-navbar {
+    margin: 12px;
+  }
+
+  .admin-elections-content {
+    width:
+      calc(100% - 28px);
+
+    padding-top: 35px;
+  }
+
+  .elections-heading h2 {
+    font-size: 32px;
+  }
+
+  .election-filters {
+    flex-wrap: wrap;
+  }
+
+  .filter-button {
+    flex:
+      1 1 45%;
+  }
+
+  .management-card-body {
+    flex-direction: column;
+  }
+
+  .management-stats {
+    width: 100%;
+  }
+
+  .management-stats div {
+    align-items: flex-start;
+  }
+
+  .management-dates {
+    grid-template-columns: 1fr;
+  }
+
+  .management-actions {
+    justify-content: stretch;
+
+    flex-direction: column;
+  }
+
+  .management-primary-button,
+  .management-secondary-button {
+    width: 100%;
+  }
+}
+
+.management-danger-button {
+  padding: 9px 14px;
+
+  border-radius: 8px;
+
+  border: 1px solid
+    rgba(239, 68, 68, 0.22);
+
+  background:
+    rgba(239, 68, 68, 0.10);
+
+  color: #fca5a5;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.management-danger-button:hover {
+  background:
+    rgba(239, 68, 68, 0.18);
+
+  border-color:
+    rgba(239, 68, 68, 0.35);
+}
+
+/* =====================================================
+   DELETE CONFIRMATION MODAL
+   ===================================================== */
+
+.delete-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(10, 5, 15, 0.68);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+
+/* =====================================================
+   MODAL
+   ===================================================== */
+
+.delete-modal {
+  position: relative;
+
+  width: min(
+    460px,
+    100%
+  );
+
+  padding: 32px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(58, 47, 64, 0.94);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 25px 70px
+    rgba(0, 0, 0, 0.5);
+
+  animation:
+    deleteModalIn
+    0.2s ease-out;
+}
+
+
+/* =====================================================
+   ANIMATION
+   ===================================================== */
+
+@keyframes deleteModalIn {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(10px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+   ===================================================== */
+
+.delete-modal-close {
+  position: absolute;
+
+  top: 14px;
+  right: 16px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.delete-modal-close:hover {
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color: white;
+}
+
+
+/* =====================================================
+   WARNING ICON
+   ===================================================== */
+
+.delete-modal-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(239, 68, 68, 0.12);
+
+  border:
+    1px solid
+    rgba(239, 68, 68, 0.22);
+
+  color:
+    #fca5a5;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   CONTENT
+   ===================================================== */
+
+.delete-modal-content {
+  padding-right: 20px;
+}
+
+.delete-modal-eyebrow {
+  margin: 0 0 7px;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+.delete-modal-content h3 {
+  margin: 0 0 12px;
+
+  color: white;
+
+  font-size: 22px;
+
+  font-weight: 600;
+}
+
+.delete-modal-content p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.delete-modal-content strong {
+  color: white;
+
+  font-weight: 600;
+}
+
+.delete-modal-warning {
+  display: block;
+
+  margin-top: 12px;
+
+  color:
+    rgba(252, 165, 165, 0.75);
+
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   ERROR
+   ===================================================== */
+
+.delete-modal-error {
+  margin-top: 18px;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  background:
+    rgba(239, 68, 68, 0.10);
+
+  border:
+    1px solid
+    rgba(239, 68, 68, 0.18);
+
+  color:
+    #fca5a5;
+
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   ACTIONS
+   ===================================================== */
+
+.delete-modal-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+
+/* =====================================================
+   CANCEL
+   ===================================================== */
+
+.delete-modal-cancel {
+  padding: 10px 17px;
+
+  border-radius: 8px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.delete-modal-cancel:hover {
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color: white;
+}
+
+
+/* =====================================================
+   DELETE
+   ===================================================== */
+
+.delete-modal-confirm {
+  padding: 10px 17px;
+
+  border-radius: 8px;
+
+  border:
+    1px solid
+    rgba(239, 68, 68, 0.28);
+
+  background:
+    rgba(239, 68, 68, 0.16);
+
+  color:
+    #fca5a5;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.delete-modal-confirm:hover {
+  background:
+    rgba(239, 68, 68, 0.24);
+
+  border-color:
+    rgba(239, 68, 68, 0.4);
+
+  color: #fecaca;
+}
+
+.delete-modal-confirm:disabled,
+.delete-modal-cancel:disabled,
+.delete-modal-close:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  .delete-modal {
+    padding: 26px 22px;
+  }
+
+  .delete-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .delete-modal-cancel,
+  .delete-modal-confirm {
+    width: 100%;
+  }
+
+}
+.votechain-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
