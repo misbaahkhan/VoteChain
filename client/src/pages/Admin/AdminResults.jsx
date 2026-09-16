@@ -1,5 +1,18 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
+} from "recharts";
 import "../../styles/admin-results.css";
 
 export default function AdminResults() {
@@ -11,6 +24,54 @@ export default function AdminResults() {
   const [loading, setLoading] = useState(true);
   const [loadingResults, setLoadingResults] = useState(false);
   const [error, setError] = useState("");
+
+
+  const CHART_COLORS = [
+  "#3B82F6", // Blue
+  "#8B5CF6", // Purple
+  "#06B6D4", // Cyan
+  "#EC4899", // Pink
+  "#22C55E", // Green
+  "#F59E0B", // Amber
+];
+
+const TURNOUT_COLORS = [
+  "#06B6D4", // Votes Cast
+  "#3A3340", // Not Voted
+];
+
+    // =====================================================
+  // CHART DATA
+  // =====================================================
+
+  const chartData =
+    result?.candidates?.map((candidate) => ({
+      name: candidate.name,
+      votes: candidate.votes || 0,
+    })) || [];
+
+  const turnoutData = result
+    ? [
+        {
+          name: "Votes Cast",
+          value: result.totalVotes || 0,
+        },
+        {
+          name: "Not Voted",
+          value: Math.max(
+            (result.eligibleVoters || 0) -
+              (result.totalVotes || 0),
+            0
+          ),
+        },
+      ]
+    : [];
+
+  const voteShareData =
+    result?.candidates?.map((candidate) => ({
+      name: candidate.name,
+      value: candidate.votes || 0,
+    })) || [];
 
   // =====================================================
   // GET ADMIN TOKEN
@@ -606,6 +667,208 @@ export default function AdminResults() {
                   for this election.
                 </div>
               )}
+            </div>
+
+
+                        {/* ================= CHARTS ================= */}
+
+            <div className="results-charts-section">
+
+              {/* ================= BAR CHART ================= */}
+
+              <div className="results-chart-card glass-results">
+                <div className="results-chart-heading">
+                  <div>
+                    <h3>Votes by Candidate</h3>
+                    <p>
+                      Comparison of votes received by each candidate.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="results-bar-chart">
+                  {chartData.length > 0 ? (
+                    <ResponsiveContainer
+                      width="100%"
+                      height={350}
+                    >
+                      <BarChart
+                        data={chartData}
+                        margin={{
+                          top: 20,
+                          right: 20,
+                          left: 10,
+                          bottom: 60,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+
+                        <XAxis
+                          dataKey="name"
+                          angle={-25}
+                          textAnchor="end"
+                          interval={0}
+                        />
+
+                        <YAxis
+                          allowDecimals={false}
+                          label={{
+                            value: "Votes",
+                            angle: -90,
+                            position: "insideLeft",
+                          }}
+                        />
+
+                        <Tooltip />
+
+                        <Bar
+                          dataKey="votes"
+                          name="Votes"
+                          radius={[8, 8, 0, 0]}
+                        >
+                          {chartData.map((entry, index) => (
+                            <Cell
+                                key={`bar-${index}`}
+                                fill={CHART_COLORS[index % CHART_COLORS.length]}
+                            />
+                          ))}
+                        </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
+                  ) : (
+                    <div className="chart-no-data">
+                      No voting data available.
+                    </div>
+                  )}
+                </div>
+              </div>
+
+
+              {/* ================= PIE CHART ================= */}
+
+              <div className="results-chart-card glass-results">
+                <div className="results-chart-heading">
+                  <div>
+                    <h3>Vote Distribution</h3>
+                    <p>
+                      Percentage share of votes received by each candidate.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="results-pie-chart">
+                  {voteShareData.length > 0 &&
+                  result.totalVotes > 0 ? (
+                    <ResponsiveContainer
+                      width="100%"
+                      height={350}
+                    >
+                      <PieChart>
+                        <Pie
+                          data={voteShareData}
+                          dataKey="value"
+                          nameKey="name"
+                          cx="50%"
+                          cy="45%"
+                          outerRadius={110}
+                          label={({ name, percent }) =>
+                            `${name}: ${(percent * 100).toFixed(1)}%`
+                          }
+                        >
+                          {voteShareData.map((entry, index) => (
+                            <Cell
+                              key={`pie-${index}`}
+                              fill={CHART_COLORS[index % CHART_COLORS.length]}
+                            />
+                          ))}
+                        </Pie>
+
+                        <Tooltip />
+
+                        <Legend />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  ) : (
+                    <div className="chart-no-data">
+                      No votes have been cast yet.
+                    </div>
+                  )}
+                </div>
+              </div>
+
+
+              {/* ================= TURNOUT CHART ================= */}
+
+              <div className="results-chart-card glass-results">
+                <div className="results-chart-heading">
+                  <div>
+                    <h3>Voter Turnout</h3>
+                    <p>
+                      Votes cast compared with eligible voters.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="results-turnout-chart">
+                  {result.eligibleVoters > 0 ? (
+                    <ResponsiveContainer
+                      width="100%"
+                      height={350}
+                    >
+                      <PieChart>
+                        <Pie
+                          data={turnoutData}
+                          dataKey="value"
+                          nameKey="name"
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={80}
+                          outerRadius={120}
+                          startAngle={90}
+                          endAngle={-270}
+                          paddingAngle={2}
+                        >
+                          {turnoutData.map((entry, index) => (
+                            <Cell
+                              key={`turnout-${index}`}
+                              fill={TURNOUT_COLORS[index]}
+                            />
+                        ))}
+                        </Pie>
+
+                        <Tooltip />
+
+                        <Legend />
+
+                        <text
+                          x="50%"
+                          y="48%"
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          className="turnout-chart-percentage"
+                        >
+                          {result.turnout}%
+                        </text>
+
+                        <text
+                          x="50%"
+                          y="57%"
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          className="turnout-chart-label"
+                        >
+                          Turnout
+                        </text>
+                      </PieChart>
+                    </ResponsiveContainer>
+                  ) : (
+                    <div className="chart-no-data">
+                      No eligible voters found.
+                    </div>
+                  )}
+                </div>
+              </div>
+
             </div>
 
             {/* ================= LIVE / FINAL MESSAGE ================= */}

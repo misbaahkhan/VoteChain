@@ -752,3 +752,111 @@
   object-fit: contain;
   display: block;
 }
+
+
+/* =====================================================
+   RESULTS CHARTS
+   ===================================================== */
+
+.results-charts-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.results-chart-card {
+  padding: 24px;
+  min-width: 0;
+}
+
+.results-chart-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.results-chart-heading {
+  margin-bottom: 10px;
+}
+
+.results-chart-heading h3 {
+  margin: 0;
+}
+
+.results-chart-heading p {
+  margin: 6px 0 0;
+  opacity: 0.7;
+}
+
+.results-bar-chart,
+.results-pie-chart,
+.results-turnout-chart {
+  width: 100%;
+  min-height: 350px;
+}
+
+.chart-no-data {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.65;
+}
+
+.turnout-chart-percentage {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.turnout-chart-label {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+
+/* =====================================================
+   RESPONSIVE CHARTS
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .results-charts-section {
+    grid-template-columns: 1fr;
+  }
+
+  .results-chart-card:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .results-chart-card {
+    padding: 16px;
+  }
+
+  .results-bar-chart,
+  .results-pie-chart,
+  .results-turnout-chart {
+    min-height: 300px;
+  }
+}
+
+
+/* Chart Colors & Styling */
+
+.admin-chart-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+.recharts-cartesian-grid line {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.recharts-x-axis text,
+.recharts-y-axis text {
+  fill: #b8b2c2;
+}
+
+.recharts-legend-item-text {
+  color: #d7d0df !important;
+}
